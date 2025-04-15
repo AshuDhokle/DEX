@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.animate-gradient {
+  background-size: 300%;
+  -webkit-animation: animatedgradient 6s ease infinite alternate;
+  -moz-animation: animatedgradient 6s ease infinite alternate;
+  animation: animatedgradient 6s ease infinite alternate;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-input .ant-input {
+  text-align: right;
+  color: white;
+  background-color: #222222;
+}
+
+
+.custom-input .ant-input::placeholder {
+  color: #F1EFEC;
+  font-size: large;
+  opacity: 0.4; /* optional: makes it slightly dimmed */
+}
+
+.input-swap-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* space between inputs */
+}
+
+.swap-icon {
+  font-size: 32px;
+  transform: rotate(90deg);
+  color: white;
+  background: #222222;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.swap-icon:hover{
+  color: gray;
+}
+
+.spinner{
+  color: white;
+}
+
+/* Tab container background and spacing */
+.custom-tabs{
+  width: fit-content;
+}
+.custom-tabs .ant-tabs-nav {
+  padding: 8px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* Individual tab buttons */
+.custom-tabs .ant-tabs-tab {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  color: #ccc;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: none !important;
+}
+
+/* Tab button on hover */
+.custom-tabs .ant-tabs-tab:hover {
+  color: #00e0ff;
+  background-color: #333;
+}
+
+/* Active tab */
+.custom-tabs .ant-tabs-tab-active {
+  color: #00e0ff !important;
+  background-color: #111;
+  box-shadow: 0 0 10px #00e0ff66;
+}
+
+/* Hide underline or borders */
+.custom-tabs .ant-tabs-ink-bar {
+  background: none !important;
+}
+
+/* Tab panel area */
+.custom-tabs .ant-tabs-content-holder {
+  border-radius: 12px;
+  padding: 20px;
+}
+
+t-tabs-tab-btn{
+  color: white;
+}
+
+.ant-tabs-tab{
+  background-color: aquamarine;
+}
+
+.ant-tabs-nav-wrap{
+  border: 2;
+}
+
