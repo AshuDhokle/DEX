@@ -47,7 +47,8 @@ setLoading: (val : boolean) => void) =>{
   try {
    const lpTokensInp = ethers.parseUnits(amountOfLpToken, 18);
    const response = await exchangeContract.removeLiquidity(lpTokensInp)
-  } catch (error) {
+   console.log(response);
+} catch (error) {
    console.log(error)
   } finally {
    setLoading(false);
@@ -63,7 +64,7 @@ export const exchangeEthForToken = async(
    setLoading(true);
    try {
       const ethValue = ethers.parseEther(ethInput.toString());
-      let minTokens = ethers.parseUnits(minTokenReq.toString());     
+      const minTokens = ethers.parseUnits(minTokenReq.toString());     
       await exchangeContract.ethToAntSwap(minTokens,{value: ethValue});
    } catch (error) {
       console.log(error);

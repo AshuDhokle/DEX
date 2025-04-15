@@ -1,6 +1,6 @@
 'use client' 
 import React, {useState, createContext, useEffect} from 'react'
-import {ethers, Contract} from 'ethers'
+import { Contract} from 'ethers'
 import { useAccount } from 'wagmi';
 import { connectContract } from '@/utils/helperFunctions';
 

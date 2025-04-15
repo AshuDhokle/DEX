@@ -25,7 +25,7 @@ const AddLiquidity = () => {
     } 
     
     const provider = new ethers.BrowserProvider(window.ethereum);
-    let ethReserve = Number((await provider.getBalance(exchangeContactAddress)).toString());
+    const ethReserve = Number((await provider.getBalance(exchangeContactAddress)).toString());
     const tokenReserve = Number((await exchangeContract?.getReserve()));
     
     if(ethReserve == 0 && tokenReserve == 0) {
@@ -33,7 +33,10 @@ const AddLiquidity = () => {
       return
     }
     
-    setValue2(((ethReserve*value1!) / tokenReserve));
+    if (value1 !== undefined && value1 !== null) {
+      setValue2((ethReserve * value1) / tokenReserve);
+    }
+    
     
   }
 
