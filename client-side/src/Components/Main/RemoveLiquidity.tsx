@@ -8,7 +8,7 @@ import { removeLiquidity } from '@/utils/helperFunctions'
 import { ethers } from 'ethers'
 import { exchangeContactAddress } from '@/utils/ABI'
 const RemoveLiquidity = () => {
-  const { exchangeContract, antContract, lpContract } = useContext(Web3Context) || {}
+  const { exchangeContract, lpContract } = useContext(Web3Context) || {}
   
     const [loading, setLoading] = useState(false);
     const [value1, setValue1] = useState<number>();
@@ -36,7 +36,8 @@ const RemoveLiquidity = () => {
       e.preventDefault();
       setLoading(true);
       try {
-        await removeLiquidity(value1?.toString()!, exchangeContract!, setLoading)
+        if(value1)
+            await removeLiquidity(value1.toString(), exchangeContract!, setLoading)
       } catch (error) {
         console.log(error);
       } finally {
